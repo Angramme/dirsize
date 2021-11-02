@@ -1,0 +1,80 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: c5356eeff7f3ba719a722cdc923a363cabee97311c0a2e57b61504a385ce97b7
+
+name:           dirsize
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/Angramme/dirsize#readme>
+homepage:       https://github.com/Angramme/dirsize#readme
+bug-reports:    https://github.com/Angramme/dirsize/issues
+author:         Kacper Ozieblowski
+maintainer:     example@example.com
+copyright:      2020 Kacper Ozieblowski
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/Angramme/dirsize
+
+library
+  exposed-modules:
+      Helper
+      Print
+      Scan
+      Tree
+  other-modules:
+      Paths_dirsize
+  hs-source-dirs:
+      src
+  build-depends:
+      ansi-terminal
+    , base >=4.7 && <5
+    , colour
+    , directory
+    , filepath
+    , parallel-io
+  default-language: Haskell2010
+
+executable dirsize
+  main-is: Main.hs
+  other-modules:
+      Paths_dirsize
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -O2
+  build-depends:
+      ansi-terminal
+    , base >=4.7 && <5
+    , colour
+    , directory
+    , dirsize
+    , filepath
+    , parallel-io
+  default-language: Haskell2010
+
+test-suite dirsize-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_dirsize
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      ansi-terminal
+    , base >=4.7 && <5
+    , colour
+    , directory
+    , dirsize
+    , filepath
+    , parallel-io
+  default-language: Haskell2010
